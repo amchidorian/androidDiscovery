@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">AndroidDiscovery - Dorian</string>
+    <string name="home_button">Go !</string>
+    <string name="titre_liste">Liste des élèves</string>
+    <string name="liste_apprenant">
+    <item>Bonjour</item>
+    </string>
+</resources>
