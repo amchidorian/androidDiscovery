@@ -10,38 +10,22 @@
         android:id="@+id/nom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="nom"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="5dp"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/first_skill"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:text="skill1"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="5dp" />
+        tools:layout_editor_absoluteX="16dp" />
 
     <TextView
-        android:id="@+id/statut"
+        android:id="@+id/prenom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:layout_marginTop="4dp"
-        android:text="Status"
+        android:text="prenom"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nom"
-        tools:layout_editor_absoluteX="16dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp" />
 
-    <TextView
-        android:id="@+id/liste_skill"
-        android:layout_width="wrap_content"
-        android:layout_height="28dp"
-        android:layout_marginEnd="8dp"
-        android:text="Skill 2 - skill 3 - skill 4"
-        app:layout_constraintEnd_toEndOf="@+id/first_skill"
-        app:layout_constraintTop_toBottomOf="@+id/first_skill"
-        tools:ignore="MissingConstraints" />
 </android.support.constraint.ConstraintLayout>

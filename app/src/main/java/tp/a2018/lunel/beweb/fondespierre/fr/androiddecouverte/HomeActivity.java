@@ -13,19 +13,30 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.lang.reflect.Array;
+
 
 public class HomeActivity extends AppCompatActivity {
-    //final Intent intent = getParentActivityIntent();
-    public HomeActivity() {
-    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        testRequest();
         setContentView(R.layout.home_activity);
         //On récupere la reference du composant button avec l'id go
         Button b = (Button) findViewById(R.id.go);
-
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,15 +69,26 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
     }
-};
-//TextView d = (TextView) findViewById(R.id.textView);
-//String retour = d.getText().toString();
 
-// TextView e = (TextView) findViewById(R.id.textView);
-//  e.setText(((TextInputEditText)v).getText().toString());
-// @Override
-//   public boolean onKey(View v, int keyPode, KeyEvent event){
-//         System.err.println( ((TextInputEditText)v).getText().toString() );
-//           return false;
-//         }
-//       });
+    public void testRequest(){
+        RequestQueue rq = Volley.newRequestQueue(this);
+        String url = "http://192.168.1.10/beWeb/api_beweb/index.php/api/test/message";
+        Response.Listener<String> res = new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                System.out.println(response);;
+            }
+        };
+        Response.ErrorListener err = new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.println("Un problème est survenue. Veuillez vérifier votre connexion.");
+            }
+        };
+        StringRequest request = new StringRequest(Request.Method.GET,url, res, err);
+
+        rq.add(request);
+    }
+
+
+}
